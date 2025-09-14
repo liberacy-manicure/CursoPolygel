@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Curso de Polygel para Principiantes</title>
+  <meta name="description" content="Curso de Polygel para Principiantes: teoría y práctica, cuaderno de ejercicios y sorteo en 13 semanas.">
+  <meta property="og:title" content="Curso de Polygel para Principiantes">
+  <meta property="og:description" content="Aprende Polygel desde cero con claridad y amor.">
+  <meta property="og:type" content="website">
+  <style>
+:root{
+  --pink-100:#F9DCE2;  /* fondo principal */
+  --pink-300:#E8AEBF;  /* acentos */
+  --pink-600:#C87C85;  /* titulos */
+  --gold-500:#B0855C;  /* botones/detalles */
+  --ink-700:#5A3A3A;   /* texto principal */
+  --white:#FFFFFF;
+}
+
+*{box-sizing:border-box}
+
+html,body{
+  padding:0; margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, 'Noto Sans', 'Helvetica Neue', sans-serif;
+  color: var(--ink-700);
+  background: var(--pink-100);
+  line-height:1.65;
+}
+
+.container{
+  max-width: 980px;
+  margin: 0 auto;
+  padding: clamp(16px, 3vw, 32px);
+}
+
+.header{
+  text-align:center;
+  padding: clamp(24px, 5vw, 56px) 16px;
+  background: linear-gradient(180deg, var(--pink-300), rgba(232,174,191,0.6));
+  border-bottom: 4px solid var(--pink-300);
+}
+
+.title{
+  margin: 0;
+  font-size: clamp(28px, 5vw, 48px);
+  color: var(--pink-600);
+  letter-spacing: 0.5px;
+}
+
+.subtitle{
+  max-width: 760px;
+  margin: 12px auto 0;
+  color: var(--white);
+  font-weight: 600;
+}
+
+.section h2{
+  color: var(--pink-600);
+  font-size: clamp(22px, 4vw, 32px);
+  margin-top: 8px;
+}
+
+.list{
+  padding-left: 1.2rem;
+}
+
+.cta{
+  display:inline-block;
+  background: var(--gold-500);
+  color: var(--white);
+  text-decoration:none;
+  padding: 14px 22px;
+  border-radius: 12px;
+  box-shadow: 0 6px 0 rgba(176,133,92,0.25);
+  font-weight:700;
+  transition: transform .1s ease, box-shadow .1s ease, opacity .2s;
+}
+
+.cta:hover{ transform: translateY(-2px); box-shadow: 0 8px 0 rgba(176,133,92,0.28); }
+.cta:active{ transform: translateY(0); box-shadow: 0 4px 0 rgba(176,133,92,0.22); }
+
+.card{
+  background: rgba(255,255,255,.5);
+  border: 2px solid var(--pink-300);
+  border-radius: 16px;
+  padding: clamp(14px, 3vw, 22px);
+}
+
+.video{
+  margin-top: 20px;
+  display:flex;
+  justify-content:center;
+}
+
+.video iframe{
+  width: 100%;
+  max-width: 800px;
+  aspect-ratio: 16/9;
+  border: 2px solid var(--pink-300);
+  border-radius: 14px;
+}
+
+footer{
+  text-align:center;
+  background: var(--pink-300);
+  color: var(--white);
+  padding: 16px;
+  margin-top: 24px;
+}
+
+/* Decorative border inspired by the cover (optional) */
+.decor-frame{
+  border: 6px double var(--pink-300);
+  border-radius: 18px;
+  padding: clamp(16px, 3vw, 28px);
+  background:
+    radial-gradient(circle at 12px 12px, var(--white) 2px, transparent 3px) top left,
+    radial-gradient(circle at 12px 12px, var(--white) 2px, transparent 3px) top right,
+    radial-gradient(circle at 12px 12px, var(--white) 2px, transparent 3px) bottom left,
+    radial-gradient(circle at 12px 12px, var(--white) 2px, transparent 3px) bottom right;
+  background-size: 24px 24px;
+  background-repeat: no-repeat;
+}
+
+.palette{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px,1fr));
+  gap:12px;
+  margin-top:8px;
+}
+.swatch{
+  border-radius:12px;
+  border:2px solid rgba(0,0,0,.05);
+  overflow:hidden;
+}
+.swatch .color{ height:56px; }
+.swatch code{ display:block; padding:8px; text-align:center; font-weight:600;}
+</style>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%23C87C85'/%3E%3Ctext x='50' y='60' text-anchor='middle' font-size='56' fill='white'%3E%F0%9F%92%85%3C/text%3E%3C/svg%3E" />
+</head>
+<body>
+  <header class="header">
+    <h1 style="color:#B0855C;" class="title">Curso de Polygel para Principiantes</h1>
+    <p class="subtitle">Diseñado con amor y claridad — todo lo que me hubiera gustado tener cuando empecé.</p>
+  </header>
+
+  <main class="container">
+    <section class="section decor-frame card">
+      <p>Nuestro <strong>Curso de Polygel para Principiantes</strong> ya está disponible. Si alguna vez has querido comenzar en el mundo del Polygel o perfeccionar tu técnica desde cero, este es tu punto de partida.</p>
+      <p>Está diseñado con todo mi amor, claridad y, sobre todo, pensado en ustedes, con todo lo que me hubiera gustado tener cuando empecé.</p>
+
+      <h2>¿Qué Incluye?</h2>
+      <ul class="list">
+        <li><strong>Teoría y práctica:</strong> desde atender a una clienta hasta ofrecer una experiencia inolvidable.</li>
+        <li><strong>Un cuaderno para practicar:</strong> soñar y trazar tu camino como manicurista.</li>
+        <li>Si completas el curso en 13 semanas a partir de hoy, podrás participar en el gran sorteo de una <strong>caja sorpresa</strong> para ayudarte a emprender.</li>
+      </ul>
+
+      
+
+      
+    </section>
+
+    <section class="section" style="margin-top:22px;">
+      <h2>🎁 Conoce el sorteo que preparamos para ti</h2>
+      <div class="video">
+        <iframe src="https://player.vimeo.com/video/1105620773?h=e0c5f062db" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </section>
+
+    
+    <!-- TESTIMONIOS -->
+    <section id="testimonios" class="container section card decor-frame" style="margin-top:40px;">
+      <h2 class="bold-title">Lo que dicen nuestras alumnas ✨</h2>
+      <script src="https://widget.senja.io/widget/9d83c597-6211-482c-9848-18017ad711fa/platform.js" type="text/javascript" async></script>
+      <div class="senja-embed" data-id="9d83c597-6211-482c-9848-18017ad711fa" data-mode="shadow" data-lazyload="false" style="display: block; width: 100%;"></div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+<div style="text-align:center; margin:60px 0;">
+  <a class="cta" style="font-size:1.2rem; padding:16px 26px;" href="https://www.skool.com/gana500dolares/classroom/d284f1ea?md=0765f8f40e064745a67cc0fa276d292f" target="_blank" rel="noopener">
+    Accede aquí al curso
+  </a>
+</div>
+
+</main>
+
+  <footer>
+    <p>Con amor, Lianny Liberacy 💅</p>
+  </footer>
+</body>
+</html>
