@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Curso Polygel Principiantes</title>
+  <meta name="description" content="Aprende Polygel desde cero con un método claro y profesional.">
+  <!-- Dashicons (iconos de WordPress) -->
+  <link rel="stylesheet" href="https://s.w.org/wp-includes/css/dashicons.css">
+  <style>
+    :root{
+      --pink-50:#FFF5F7;
+      --pink-100:#F9DCE2;
+      --pink-300:#E8AEBF;
+      --gold:#B0855C;
+      --ink:#3E2F2F;
+      --muted:#7A6666;
+      --white:#FFFFFF;
+      --shadow:0 12px 30px rgba(0,0,0,.06);
+      --radius:18px;
+      --container:1120px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--pink-50);color:var(--ink);font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:var(--container);margin:0 auto;padding:clamp(16px,2.5vw,32px)}
+
+    .header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.85);backdrop-filter:blur(8px);border-bottom:1px solid #eee}
+    .nav{display:flex;align-items:center;justify-content:space-between}
+    .brand{font-weight:800}
+    .menu{display:flex;gap:18px}
+    .menu a{color:var(--muted)}
+    .menu a:hover{color:var(--ink)}
+
+    .hero{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;padding-block:clamp(24px,6vw,72px)}
+    .hero h1{font-size:clamp(28px,5.2vw,56px);line-height:1.1;margin:0 0 12px;color:#1f1a1a}
+    .hero p{color:var(--muted);font-size:clamp(14px,1.7vw,18px);max-width:56ch}
+    .cta{display:inline-block;margin-top:18px;background:var(--gold);color:var(--white);padding:14px 22px;border-radius:12px;font-weight:700;box-shadow:var(--shadow)}
+    .cta:hover{filter:brightness(1.04)}
+    .hero-art{width:100%;min-height:480px;height:100vh;border-radius:var(--radius);background:linear-gradient(180deg,var(--pink-100),var(--white));overflow:hidden;position:relative;box-shadow:var(--shadow)}
+    .hero-art img{width:100%;height:100%;object-fit:cover}
+
+    /* LO QUE APRENDERÁS */
+    .learn-quick{background:#fff;padding:clamp(26px,5vw,56px) 0;border-top:1px solid #f1e8ea;border-bottom:1px solid #f1e8ea}
+    .learn-quick .section-title{margin:0;text-align:center;color:#1f1a1a;font-size:clamp(22px,3.2vw,36px)}
+    .learn-quick .section-lead{margin:6px auto 22px;text-align:center;color:var(--muted);max-width:62ch}
+    .learn-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .learn-card{background:#fff;border:1px solid #f0e6de;border-radius:16px;padding:18px;box-shadow:var(--shadow);display:flex;gap:12px;align-items:flex-start}
+    .icon-wrap{width:46px;height:46px;border-radius:12px;border:1.5px solid var(--gold);display:grid;place-items:center;flex:0 0 46px;background:#FFFDFB}
+    .dashicons{font-size:24px;line-height:1;color:var(--gold)}
+    .learn-card h4{margin:2px 0 6px;font-size:17px;color:#1f1a1a}
+    .learn-card p{margin:0;color:var(--muted);font-size:15px;line-height:1.5}
+
+    /* LOGROS AL FINALIZAR */
+    .outcomes-timeline{background:#FFF5F7;padding:clamp(28px,5vw,60px) 0;border-bottom:1px solid #f1e8ea}
+    .outcomes-timeline .section-title{margin:0 0 8px;text-align:center;color:#1f1a1a;font-size:clamp(22px,3.2vw,36px)}
+    .outcomes-timeline .section-lead{margin:0 auto 26px;text-align:center;color:var(--muted);max-width:62ch}
+    .timeline{position:relative;max-width:var(--container);margin:0 auto;display:grid;gap:28px}
+    .timeline::before{content:"";position:absolute;left:24px;top:0;bottom:0;width:2px;background:var(--gold);opacity:.55}
+    .step{position:relative;display:flex;gap:14px;align-items:flex-start;padding-left:80px}
+    .badge{position:absolute;left:0;top:0;width:48px;height:48px;border-radius:50%;background:#fff;border:2px solid var(--gold);display:grid;place-items:center;box-shadow:0 6px 16px rgba(176,133,92,.18);font-weight:800;color:var(--gold)}
+    .card{background:#fff;border:1px solid #f0e6de;border-radius:14px;padding:18px 20px;box-shadow:var(--shadow)}
+    .card h4{margin:0 0 6px;font-size:17px;color:#1f1a1a}
+    .card p{margin:0;color:#7A6666;font-size:15px;line-height:1.5}
+
+    /* ¿QUÉ INCLUYE? + VIDEO */
+    #incluye-sorteo{background:#fff;padding:40px 0;border-top:1px solid #f1e8ea;border-bottom:1px solid #f1e8ea;font-family:inherit}
+    #incluye-sorteo>div{max-width:1120px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:.7fr 1.3fr;gap:32px;align-items:center}
+    #incluye-sorteo h2{margin:0 0 10px;font-size:clamp(22px,3vw,34px);color:#1f1a1a}
+    #incluye-sorteo ul{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+    #incluye-sorteo li{display:flex;gap:10px;align-items:flex-start}
+    #incluye-sorteo li span.dashicons{flex:0 0 22px;font-size:22px;color:var(--gold)}
+
+    /* VIDEO grande (miniatura grande) */
+    .video-wrap{
+      position:relative;
+      border-radius:18px;
+      overflow:hidden;
+      box-shadow:0 6px 18px rgba(0,0,0,.08);
+      aspect-ratio:16/9;            /* hace el video grande y proporcional */
+    }
+    .video-wrap iframe{
+      position:absolute; inset:0; width:100%; height:100%;
+      border:0;
+    }
+    .video-badge{
+      position:absolute;top:12px;left:12px;background:#FFF5F7;color:#B78A60;
+      border:1px solid rgba(0,0,0,.04);font-weight:800;padding:8px 14px;border-radius:999px;
+      box-shadow:0 6px 14px rgba(176,133,92,.18);font-size:15px;letter-spacing:.5px;z-index:3;text-transform:uppercase
+    }
+
+    /* TESTIMONIOS */
+    .testimonials{background:#fff;padding:40px 0;border-bottom:1px solid #f1e8ea}
+    .testimonials h2{text-align:center;margin-bottom:14px;color:#1f1a1a;font-size:clamp(22px,3.2vw,36px)}
+
+    /* CTA FINAL (franja degradada + KPIs + botón más delgado y menos bold) */
+    .cta-final.opcion-franja-kpi{--gold:#B0855C;background:linear-gradient(90deg,#FFF5F7,#f9dce2);padding:48px 0;color:var(--ink);font-family:inherit}
+    .cta-final.opcion-franja-kpi h2,.cta-final.opcion-franja-kpi p{color:#1f1a1a}
+    .cta-final.opcion-franja-kpi .kpi{
+      background:rgba(255,255,255,.65);
+      border:1px solid rgba(0,0,0,.08);
+      padding:12px 22px;           /* más relleno lateral */
+      border-radius:14px;
+      min-width:120px;
+    }
+    .cta-final.opcion-franja-kpi a{
+      background:var(--gold);color:#fff;
+      padding:12px 22px;           /* menos “gordo” */
+      border-radius:999px;
+      font-weight:700;             /* menos negrita */
+      text-decoration:none;
+      box-shadow:0 10px 20px rgba(0,0,0,.12);
+      font-size:17px;
+      display:inline-block;min-width:240px
+    }
+
+    footer{padding:18px;text-align:center;color:#856;font-size:14px}
+
+    /* RESPONSIVE */
+    @media(max-width:1100px){.learn-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:980px){
+      .hero{grid-template-columns:1fr;gap:22px}
+      .menu{display:none}
+      #incluye-sorteo>div{grid-template-columns:1fr;gap:18px}
+    }
+    @media(max-width:640px){
+      .learn-grid{grid-template-columns:1fr}
+      .timeline::before{left:20px}
+      .step{padding-left:70px}
+      .badge{width:44px;height:44px}
+    }
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <div class="container nav">
+    <div class="brand">CURSO POLYGEL PRINCIPIANTES</div>
+    <nav class="menu">
+      <a href="#inicio">Inicio</a>
+      <a href="#aprenderas">Lo que aprenderás</a>
+      <a href="#logros">Logros</a>
+      <a href="#incluye-sorteo">¿Qué incluye?</a>
+      <a href="#testimonios">Testimonios</a>
+    </nav>
+  </div>
+</header>
+
+<main id="inicio" class="container hero">
+  <div>
+    <h1>Nuestro Curso de Polygel para Principiantes ya está disponible</h1>
+    <p>Si alguna vez has querido comenzar en el mundo del Polygel o perfeccionar tu técnica desde cero, este es tu punto de partida. Diseñado con todo mi amor, claridad y lo que me hubiera gustado tener cuando empecé.</p>
+    <a class="cta" href="https://www.skool.com/gana500dolares/classroom/d284f1ea?md=0765f8f40e064745a67cc0fa276d292f" target="_blank">Accede al curso</a>
+  </div>
+  <div class="hero-art">
+    <img src="https://assets.skool.com/f/2edf17cbd2464f7a92612ed5e38672f2/c0884fc4f79044e487e3d81b009218b7450364d2f94a4a9096d055c6238e4b48" alt="Manicura profesional">
+  </div>
+</main>
+
+<!-- LO QUE APRENDERÁS -->
+<section id="aprenderas" class="learn-quick">
+  <div class="container">
+    <h2 class="section-title">Lo que aprenderás</h2>
+    <p class="section-lead">Al avanzar en este curso descubrirás cómo transformar tu trabajo y tu confianza:</p>
+    <div class="learn-grid">
+      <article class="learn-card">
+        <div class="icon-wrap"><span class="dashicons dashicons-art" aria-hidden="true"></span></div>
+        <div>
+          <h4>Aplicación profesional de Polygel</h4>
+          <p>Dominarás la técnica paso a paso para trabajar con precisión y seguridad desde la preparación hasta el sellado.</p>
+        </div>
+      </article>
+      <article class="learn-card">
+        <div class="icon-wrap"><span class="dashicons dashicons-yes-alt" aria-hidden="true"></span></div>
+        <div>
+          <h4>Preparación correcta y durabilidad</h4>
+          <p>Aprenderás protocolos que evitan desprendimientos y garantizan acabados resistentes que tus clientas aman.</p>
+        </div>
+      </article>
+      <article class="learn-card">
+        <div class="icon-wrap"><span class="dashicons dashicons-heart" aria-hidden="true"></span></div>
+        <div>
+          <h4>Experiencia inolvidable</h4>
+          <p>Sabrás crear citas cálidas y memorables con higiene, comunicación y detalles que fidelizan.</p>
+        </div>
+      </article>
+      <article class="learn-card">
+        <div class="icon-wrap"><span class="dashicons dashicons-megaphone" aria-hidden="true"></span></div>
+        <div>
+          <h4>Impulso en redes y clientes</h4>
+          <p>Aprenderás a documentar tu trabajo para atraer más clientas e ingresos con una presencia auténtica.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- LOGROS AL FINALIZAR -->
+<section id="logros" class="outcomes-timeline">
+  <div class="container">
+    <h2 class="section-title">Lo que lograrás al terminar el curso</h2>
+    <p class="section-lead">Resultados concretos que verás en tu práctica y en tu negocio:</p>
+    <div class="timeline">
+      <div class="step"><div class="badge">1</div><div class="card"><h4>Dominio del Polygel</h4><p>Aplicación precisa, control del producto y terminaciones impecables en tiempos profesionales.</p></div></div>
+      <div class="step"><div class="badge">2</div><div class="card"><h4>Servicios que duran</h4><p>Preparación correcta para mayor durabilidad y cero desprendimientos, clientas felices que regresan.</p></div></div>
+      <div class="step"><div class="badge">3</div><div class="card"><h4>Seguridad & conocimiento</h4><p>Comprensión de anatomía de la uña y química del producto para trabajar con total confianza.</p></div></div>
+      <div class="step"><div class="badge">4</div><div class="card"><h4>Marca personal en crecimiento</h4><p>Documentación en redes que atrae nuevas clientas e impulsa tus ingresos de forma orgánica.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ¿QUÉ INCLUYE? + VIDEO -->
+<section id="incluye-sorteo">
+  <div>
+    <div>
+      <h2>¿Qué incluye el curso?</h2>
+      <ul>
+        <li><span class="dashicons dashicons-yes"></span> Teoría y práctica: desde atender a una clienta hasta ofrecer una experiencia inolvidable.</li>
+        <li><span class="dashicons dashicons-yes"></span> Cuaderno de práctica: soñar y trazar tu camino como manicurista con ejercicios.</li>
+        <li><span class="dashicons dashicons-yes"></span> Sorteo en 13 semanas: participa por una caja sorpresa al completar el curso.</li>
+      </ul>
+    </div>
+    <div>
+      <div class="video-wrap" aria-label="Conoce nuestro sorteo">
+        <span class="video-badge">CONOCE NUESTRO SORTEO</span>
+        <iframe src="https://player.vimeo.com/video/1105620773?h=e0c5f062db" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIOS -->
+<section id="testimonios" class="testimonials">
+  <div class="container">
+    <h2 class="section-title">Lo que dicen nuestras alumnas</h2>
+    <script src="https://widget.senja.io/widget/9d83c597-6211-482c-9848-18017ad711fa/platform.js" async></script>
+    <div class="senja-embed" data-id="9d83c597-6211-482c-9848-18017ad711fa" data-mode="shadow" data-lazyload="false" style="display:block;width:100%"></div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-final opcion-franja-kpi">
+  <div style="max-width:1120px;margin:0 auto;padding:0 24px;text-align:center">
+    <h2 style="margin:0 0 8px;font-size:clamp(22px,3.2vw,36px)">Conviértete en la manicurista que imaginas</h2>
+    <p style="margin:0 0 18px;font-size:clamp(14px,1.6vw,18px)">Aprende Polygel con método, soporte y materiales listos para empezar hoy.</p>
+    <div style="display:grid;grid-auto-flow:column;gap:16px;justify-content:center;align-items:stretch;margin:0 0 18px">
+      <div class="kpi"><div style="font-weight:900;font-size:18px">+500</div><div style="font-size:13px">alumnas</div></div>
+      <div class="kpi"><div style="font-weight:900;font-size:18px">13</div><div style="font-size:13px">semanas</div></div>
+      <div class="kpi"><div style="font-weight:900;font-size:18px">100%</div><div style="font-size:13px">práctico</div></div>
+    </div>
+    <a href="https://www.skool.com/gana500dolares/classroom/d284f1ea?md=0765f8f40e064745a67cc0fa276d292f" target="_blank" rel="noopener">Quiero participar</a>
+  </div>
+</section>
+
+<footer id="contacto">
+  <div class="container">
+    Con amor, Lianny Liberacy • © <span id="y"></span>
+  </div>
+</footer>
+
+<script>document.getElementById('y').textContent=new Date().getFullYear();</script>
+</body>
+</html>
