@@ -21,7 +21,11 @@
       --container:1120px;
     }
     *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:var(--pink-50);color:var(--ink);font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6}
+    html,body{
+      margin:0;padding:0;background:var(--pink-50);color:var(--ink);
+      font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6;
+      overflow-x:hidden; /* por si algún navegador intenta desbordar */
+    }
     a{color:inherit;text-decoration:none}
     .container{max-width:var(--container);margin:0 auto;padding:clamp(16px,2.5vw,32px)}
 
@@ -57,7 +61,7 @@
     .cta{display:inline-block;margin-top:18px;background:var(--gold);color:var(--white);padding:12px 20px;border-radius:12px;font-weight:600;box-shadow:var(--shadow)}
     .cta:hover{filter:brightness(1.04)}
     .hero-art{width:100%;min-height:480px;height:100vh;border-radius:var(--radius);background:linear-gradient(180deg,var(--pink-100),var(--white));overflow:hidden;position:relative;box-shadow:var(--shadow)}
-    .hero-art img{width:100%;height:100%;object-fit:cover}
+    .hero-art img{width:100%;height:100%;object-fit:cover;pointer-events:none;user-select:none}
 
     /* Secciones / Títulos */
     .section-title{margin:0;text-align:center;color:#1f1a1a;font-size:clamp(22px,3.2vw,36px)}
@@ -82,16 +86,26 @@
     .card h4{margin:0 0 6px;font-size:17px;color:#1f1a1a}
     .card p{margin:0;color:#7A6666;font-size:15px;line-height:1.5}
 
-    /* ¿QUÉ INCLUYE? + VIDEO */
+    /* ¿QUÉ INCLUYE? + VIDEO (RESPONSIVE DE VERDAD) */
     #incluye-sorteo{background:#fff;padding:40px 0;border-top:1px solid #f1e8ea;border-bottom:1px solid #f1e8ea}
-    #incluye-sorteo>div{max-width:1120px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:.7fr 1.3fr;gap:32px;align-items:center}
-    #incluye-sorteo h2{margin:0 0 10px;font-size:clamp(22px,3vw,34px);color:#1f1a1a}
+    #incluye-sorteo .grid{
+      display:grid;
+      grid-template-columns:.75fr 1.25fr; /* texto más estrecho, video más amplio */
+      gap:24px;
+      align-items:center;
+    }
+    #incluye-sorteo h2{margin:0 0 10px;font-size:clamp(22px,3vw,34px);color:#1f1a1a;text-align:left}
     #incluye-sorteo ul{list-style:none;margin:0;padding:0;display:grid;gap:12px}
     #incluye-sorteo li{display:flex;gap:10px;align-items:flex-start}
     #incluye-sorteo li span.dashicons{flex:0 0 22px;font-size:22px;color:var(--gold)}
-    .video-wrap{position:relative;border-radius:18px;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,.08);aspect-ratio:16/9;width:100%;min-height:320px}
-    .video-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-    .video-badge{position:absolute;top:12px;left:12px;background:#FFF5F7;color:#B78A60;font-weight:800;padding:8px 14px;border-radius:999px;box-shadow:0 6px 14px rgba(176,133,92,.18);font-size:15px;letter-spacing:.5px;z-index:3;text-transform:uppercase}
+    .video-wrap{
+      position:relative;border-radius:18px;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,.08);
+      aspect-ratio:16/9;width:100%;max-width:100%;
+    }
+    .video-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+    .video-badge{
+      position:absolute;top:12px;left:12px;background:#FFF5F7;color:#B78A60;font-weight:800;padding:8px 14px;border-radius:999px;box-shadow:0 6px 14px rgba(176,133,92,.18);font-size:15px;letter-spacing:.5px;z-index:3;text-transform:uppercase
+    }
 
     /* TESTIMONIOS */
     .testimonials{background:#fff;padding:40px 0;border-bottom:1px solid #f1e8ea}
@@ -101,9 +115,25 @@
     .cta-final.opcion-franja-kpi{background:linear-gradient(90deg,#FFF5F7,#f9dce2);padding:48px 0;color:var(--ink)}
     .cta-final.opcion-franja-kpi .inner{max-width:1120px;margin:0 auto;padding:0 24px;text-align:center}
     .cta-final.opcion-franja-kpi h2{color:#1f1a1a;margin-bottom:20px}
-    .cta-final.opcion-franja-kpi .kpis{display:grid;grid-auto-flow:column;gap:20px;justify-content:center;margin:0 0 24px}
-    .cta-final.opcion-franja-kpi .kpi{background:rgba(255,255,255,.65);border:1px solid rgba(0,0,0,.08);padding:16px 30px;border-radius:14px;min-width:120px}
-    .cta-final.opcion-franja-kpi a{background:var(--gold);color:#fff;padding:12px 20px;border-radius:999px;font-weight:600;text-decoration:none;box-shadow:0 10px 20px rgba(0,0,0,.12);font-size:17px;display:inline-block;min-width:240px}
+    .cta-final.opcion-franja-kpi .kpis{
+      display:grid;
+      grid-template-columns:repeat(3, max-content);
+      gap:14px;
+      justify-content:center;
+      align-items:center;
+      margin:0 0 20px;
+    }
+    .cta-final.opcion-franja-kpi .kpi{
+      background:rgba(255,255,255,.65);
+      border:1px solid rgba(0,0,0,.08);
+      padding:10px 16px;
+      border-radius:12px;
+      min-width:auto;
+      text-align:center;
+    }
+    .cta-final.opcion-franja-kpi .kpi div:first-child{font-weight:800;font-size:16px;line-height:1}
+    .cta-final.opcion-franja-kpi .kpi div:last-child{font-size:12px;line-height:1.2}
+    .cta-final.opcion-franja-kpi a{background:var(--gold);color:#fff;padding:12px 20px;border-radius:999px;font-weight:600;text-decoration:none;box-shadow:0 10px 20px rgba(0,0,0,.12);font-size:16px;display:inline-block;min-width:220px}
 
     footer{padding:18px;text-align:center;color:#856;font-size:14px}
 
@@ -113,15 +143,16 @@
       .hero{grid-template-columns:1fr;gap:22px}
       .menu{display:none}
       .menu-toggle{display:flex}
-      #incluye-sorteo>div{grid-template-columns:1fr;gap:18px}
+      /* apila la sección incluye + video en móvil */
+      #incluye-sorteo .grid{grid-template-columns:1fr}
     }
     @media(max-width:640px){
       .learn-grid{grid-template-columns:1fr}
       .timeline::before{left:20px}
       .step{padding-left:70px}
       .badge{width:44px;height:44px}
-      .cta-final.opcion-franja-kpi .kpis{grid-auto-flow:row}
     }
+
     /* Menú móvil */
     .mobile-menu{display:none;background:#fff;border-top:1px solid #eee;box-shadow:0 12px 24px rgba(0,0,0,.06)}
     .mobile-menu.open{display:block}
@@ -192,21 +223,23 @@
   </div>
 </section>
 
-<!-- ¿QUÉ INCLUYE? + VIDEO -->
+<!-- ¿QUÉ INCLUYE? + VIDEO (NUEVA MAQUETA RESPONSIVE) -->
 <section id="incluye-sorteo">
-  <div>
-    <div>
-      <h2 class="section-title" style="text-align:left">¿Qué incluye el curso?</h2>
-      <ul>
-        <li><span class="dashicons dashicons-yes"></span> Teoría y práctica: desde atender a una clienta hasta ofrecer una experiencia inolvidable.</li>
-        <li><span class="dashicons dashicons-yes"></span> Cuaderno de práctica: soñar y trazar tu camino como manicurista con ejercicios.</li>
-        <li><span class="dashicons dashicons-yes"></span> Sorteo en 13 semanas: participa por una caja sorpresa al completar el curso.</li>
-      </ul>
-    </div>
-    <div>
-      <div class="video-wrap" aria-label="Conoce nuestro sorteo">
-        <span class="video-badge">CONOCE NUESTRO SORTEO</span>
-        <iframe src="https://player.vimeo.com/video/1105620773?h=e0c5f062db" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+  <div class="container">
+    <div class="grid">
+      <div>
+        <h2 class="section-title" style="text-align:left">¿Qué incluye el curso?</h2>
+        <ul>
+          <li><span class="dashicons dashicons-yes"></span> Teoría y práctica: desde atender a una clienta hasta ofrecer una experiencia inolvidable.</li>
+          <li><span class="dashicons dashicons-yes"></span> Cuaderno de práctica: soñar y trazar tu camino como manicurista con ejercicios.</li>
+          <li><span class="dashicons dashicons-yes"></span> Sorteo en 13 semanas: participa por una caja sorpresa al completar el curso.</li>
+        </ul>
+      </div>
+      <div>
+        <div class="video-wrap" aria-label="Conoce nuestro sorteo">
+          <span class="video-badge">CONOCE NUESTRO SORTEO</span>
+          <iframe src="https://player.vimeo.com/video/1105620773?h=e0c5f062db" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+        </div>
       </div>
     </div>
   </div>
@@ -216,7 +249,7 @@
 <section id="testimonios" class="testimonials">
   <div class="container">
     <h2 class="section-title">Lo que dicen nuestras alumnas</h2>
-    <script src="https://widget.senja.io/widget/9d83c597-6211-482c-9848-18017ad711fa/platform.js" async></script>
+    <script src="https://widget.senja.io/widget/9d83c597-6211-482c-9848-18017ad711fa" async></script>
     <div class="senja-embed" data-id="9d83c597-6211-482c-9848-18017ad711fa" data-mode="shadow" data-lazyload="false" style="display:block;width:100%"></div>
   </div>
 </section>
@@ -227,9 +260,9 @@
     <h2 class="section-title">Conviértete en la manicurista que imaginas</h2>
     <p class="section-lead" style="margin-bottom:18px">Aprende Polygel con método, soporte y materiales listos para empezar hoy.</p>
     <div class="kpis">
-      <div class="kpi"><div style="font-weight:900;font-size:18px">+500</div><div style="font-size:13px">alumnas</div></div>
-      <div class="kpi"><div style="font-weight:900;font-size:18px">13</div><div style="font-size:13px">semanas</div></div>
-      <div class="kpi"><div style="font-weight:900;font-size:18px">100%</div><div style="font-size:13px">práctico</div></div>
+      <div class="kpi"><div>+500</div><div>alumnas</div></div>
+      <div class="kpi"><div>13</div><div>semanas</div></div>
+      <div class="kpi"><div>100%</div><div>práctico</div></div>
     </div>
     <a href="https://www.skool.com/gana500dolares/classroom/d284f1ea?md=0765f8f40e064745a67cc0fa276d292f" target="_blank" rel="noopener">Quiero participar</a>
   </div>
@@ -267,3 +300,4 @@
 </script>
 </body>
 </html>
+
